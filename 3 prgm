@@ -1,0 +1,42 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+int similar_num(vector<int>& integer) {
+    int a = 0;
+    int b = 0;
+    while (true) 
+    {
+        a=integer[a];
+        b=integer[integer[b]];
+        if (a==b)
+            break;
+    }
+
+    int detector=0;
+    while (true) 
+    {
+        detector=integer[detector];
+        a=integer[a];
+
+        if (detector==a)
+            return detector;
+    }
+}
+
+int main(){
+    int l;
+    cout<<"enter length of array: ";
+    cin>>l;
+
+    vector<int> integer(l);
+
+    cout<<"enter the elements of the array: \n";
+    for (int i=0;i<l;i++) 
+    {
+        cin>>integer[i];
+    }
+
+    int duplicate_num=similar_num(integer);
+    cout<<"Duplicate Number: " << duplicate_num<<"\n";
+   
+}
